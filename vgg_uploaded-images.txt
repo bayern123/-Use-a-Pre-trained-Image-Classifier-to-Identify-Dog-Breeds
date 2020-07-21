@@ -1,0 +1,79 @@
+Command Line Arguments:
+     dir = uploaded_images/ 
+    arch = vgg 
+ dogfile = dognames.txt
+
+Pet Image Label Dictionary has 4 key-value pairs.
+Below are 4 of them:
+ 1 key:         golden_retriever_2.jpg  label:                          g
+ 2 key:                       bird.jpg  label:                          b
+ 3 key:                     Robben.jpg  label:                          r
+ 4 key:           golden_retriever.jpg  label:                          g
+
+     MATCH:
+
+          golden_retriever.jpg: 
+Real:           golden retriever   Classifier:               golden retriever
+
+ NOT A MATCH:
+
+        golden_retriever_2.jpg: 
+Real:           golden retriever   Classifier:           afghan hound, afghan
+
+                      bird.jpg: 
+Real:                       bird   Classifier:                        jacamar
+
+                    Robben.jpg: 
+Real:                     robben   Classifier:       horizontal bar, high bar
+
+# Total Images 4 # Matches: 1 # NOT Matches: 3
+
+     MATCH:
+
+          golden_retriever.jpg: 
+Real:           golden retriever   Classifier:               golden retriever  
+PetLabelDog: 1  ClassLabelDog: 1
+
+ NOT A MATCH:
+
+        golden_retriever_2.jpg: 
+Real:           golden retriever   Classifier:           afghan hound, afghan  
+PetLabelDog: 1  ClassLabelDog: 1
+
+                      bird.jpg: 
+Real:                       bird   Classifier:                        jacamar  
+PetLabelDog: 0  ClassLabelDog: 0
+
+                    Robben.jpg: 
+Real:                     robben   Classifier:       horizontal bar, high bar  
+PetLabelDog: 0  ClassLabelDog: 0
+
+# Total Images 4 # Matches: 1 # NOT Matches: 3
+{'n_dogs_img': 2, 'n_match': 1, 'n_correct_dogs': 2, 'n_correct_notdogs': 2, 'n_correct_breed': 1, 'n_images': 4, 'n_notdogs_img': 2, 'pct_match': 25.0, 'pct_correct_dogs': 100.0, 'pct_correct_breed': 50.0, 'pct_correct_notdogs': 100.0}
+
+ ** Statistics from calculates_results_stats() function:
+N Images:  4  N Dog Images:  2  N NotDog Images:  2 
+Pct Corr dog: 100.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:  50.0
+
+ ** Check Statistics - calculated from this function as a check:
+N Images:  4  N Dog Images:  2  N NotDog Images:  2 
+Pct Corr dog: 100.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:  50.0
+
+
+*** Results Summary for CNN Model Architecture vgg ***
+N Images            :   4
+N Dog Images        :   2
+N Not-Dog Images    :   2
+
+
+*** Summary statistics percentage of model vgg ***
+ 
+pct_match: 25.0
+pct_correct_dogs: 100.0
+pct_correct_breed: 50.0
+pct_correct_notdogs: 100.0
+
+INCORRECT Dog Breed Assignment:
+Real:           golden retriever   Classifier:           afghan hound, afghan
+
+** Total Elapsed Runtime: 0:0:5
