@@ -33,8 +33,8 @@ from generate_name import generate_name
 # 
 
 #helper function that takes parameters ai_string and correct_name to check if name contains string
-def check_match(correct_name, ai_string):
-        if (correct_name in ai_string):
+def check_match(name, ai_string):
+        if (name in ai_string):
             return 1
         else:
             return 0
@@ -76,38 +76,17 @@ def classify_images(images_dir, results_dic, model):
            None - results_dic is mutable data type so no return needed.         
    
    """
-    #defines list of files
-    in_files = listdir(images_dir)
-    #creates iterator
-    i = 0
-    #counts number of unusable files
-    for dogfile in in_files:
-        if dogfile[0] == '.':
-            i += 1
-            next
-        else:
-            break
-    #loops through all usable files
-    for dogfile in in_files[i::]:  
+    #loops through all files in dictionary
+    for dogfile in results_dic:  
         #defines full file name called 'full_image_name'
         full_image_name = images_dir + "/" + dogfile
-        #calls helped function generate_name to strip whitespaces and makes lower case
-        new_name = generate_name(dogfile)
         #calls classifier and inputs classifier data into 'image_classification'
         image_classification = classifier(full_image_name, model) 
-        #makes image_classification data lower case
+        #makes image_classification data lower case and strips whitespace
         ai_lower_name = image_classification.lower()
+        ai_final_name = ai_lower_name.strip()
         #uses helper function check_match to determine if the updated file name is equal to one of the names ID'd by the classifier
-        match = check_match(results_dic[dogfile], ai_lower_name)   
-        #creates new list
-        value_list = []
-        #adds lower case filename to list
-        value_list.append(results_dic[dogfile])
-        #appends lower case names from classifier to list 
-        value_list.append(ai_lower_name)
-        #appends 0 or 1 to value list depending on whether classifier and filename match
-        value_list.append(match)
-        #adds new values to results_dic from value_list
-        results_dic[dogfile] = value_list
-        
-
+        match = check_match(results_dic[dogfile][0], ai_final_name) 
+        #extends updated values to dictionary
+        results_dic[dogfile].extend((ai_final_name, match))
+     

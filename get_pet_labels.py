@@ -54,9 +54,9 @@ def get_pet_labels(image_dir):
     for dogfile in in_files:
         #if first character of dogfile is '.', skip
         if dogfile[0] == '.':
-            next
+            continue
         #calls helper function generate_name to remove whitespace and make lower case
-        results_dic[dogfile] = generate_name(dogfile)
+        results_dic[dogfile] = [generate_name(dogfile)]
     #returns dictionary
     return results_dic
     

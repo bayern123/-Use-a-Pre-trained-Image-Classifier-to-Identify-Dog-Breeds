@@ -67,7 +67,6 @@ def main():
     # Function that checks Pet Images in the results Dictionary using results    
     check_creating_pet_image_labels(results_dic)
 
-
     # TODO 3: Define classify_images function within the file classiy_images.py
     # Once the classify_images function has been defined replace first 'None' 
     # in the function call with in_arg.dir and replace the last 'None' in the
@@ -103,7 +102,7 @@ def main():
     # Calculates results of run and puts statistics in the Results Statistics
     # Dictionary - called results_stats
     results_stats = calculates_results_stats(results_dic)
-    print(results_stats)
+
     # Function that checks Results Statistics Dictionary using results_stats
     check_calculating_results(results_dic, results_stats)
 
